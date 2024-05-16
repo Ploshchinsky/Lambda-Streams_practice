@@ -13,17 +13,29 @@ public abstract class Learner implements Comparable<Learner> {
         this.city = city;
     }
 
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
 
-    public abstract void setName(String name);
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public abstract int getAge();
+    public int getAge() {
+        return age;
+    }
 
-    public abstract void setAge(int age);
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-    public abstract String getCity();
+    public String getCity() {
+        return city;
+    }
 
-    public abstract void setCity(String city);
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     @Override
     public abstract boolean equals(Object o);
@@ -33,7 +45,4 @@ public abstract class Learner implements Comparable<Learner> {
 
     @Override
     public abstract String toString();
-
-    @Override
-    public abstract int compareTo(Learner o);
 }
