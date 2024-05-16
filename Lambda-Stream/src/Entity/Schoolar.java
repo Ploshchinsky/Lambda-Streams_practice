@@ -45,9 +45,9 @@ public class Schoolar extends Learner {
     public String toString() {
         return "Schoolar{" +
                 "name=" + super.getName() +
-                "age=" + super.getAge() +
-                "city=" + super.getCity() +
-                "classNumber=" + classNumber +
+                ", age=" + super.getAge() +
+                ", city=" + super.getCity() +
+                ", classNumber=" + classNumber +
                 ", avgGrade=" + avgGrade +
                 '}';
     }
