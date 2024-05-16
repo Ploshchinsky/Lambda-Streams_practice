@@ -1,10 +1,12 @@
 import Entity.Learner;
 import Entity.Schoolar;
+import Entity.Section;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -21,6 +23,23 @@ public class Main {
         test4();
         test5();
         distinctTest();
+        flatMapTest();
+    }
+
+    private static void flatMapTest() {
+        Section football = new Section("Football");
+        Section volleyball = new Section("Volleyball");
+        football.addMember(learnerList.get(0));
+        football.addMember(learnerList.get(1));
+        football.addMember(learnerList.get(2));
+        volleyball.addMember(learnerList.get(3));
+        volleyball.addMember(learnerList.get(4));
+        volleyball.addMember(learnerList.get(5));
+
+        List<Section> sectionsList = List.of(football, volleyball);
+        sectionsList.stream()
+                .flatMap(section -> section.getMembers().stream())
+                .forEach(System.out::println);
     }
 
     private static void distinctTest() {
