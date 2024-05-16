@@ -36,13 +36,4 @@ public abstract class Learner implements Comparable<Learner> {
     public void setCity(String city) {
         this.city = city;
     }
-
-    @Override
-    public abstract boolean equals(Object o);
-
-    @Override
-    public abstract int hashCode();
-
-    @Override
-    public abstract String toString();
 }
