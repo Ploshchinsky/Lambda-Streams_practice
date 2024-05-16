@@ -7,6 +7,12 @@ public abstract class Learner implements Comparable<Learner> {
     private int age;
     private String city;
 
+    public Learner(String name, int age, String city) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+
     public abstract String getName();
 
     public abstract void setName(String name);
