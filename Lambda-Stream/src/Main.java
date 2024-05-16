@@ -29,7 +29,14 @@ public class Main {
         Map<Integer, List<Learner>> map = learnerList.stream()
                 .collect(Collectors.groupingBy(Learner::getAge));
 
+        System.out.println("\nGrouping By:");
         for (Map.Entry<Integer, List<Learner>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+        System.out.println("\nPartition By:");
+        Map<Boolean, List<Learner>> map2 = learnerList.stream()
+                .collect(Collectors.partitioningBy(learner -> learner.getCity() == "Moscow"));
+        for (Map.Entry<Boolean, List<Learner>> entry : map2.entrySet()) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
         System.out.println("-----------------");
