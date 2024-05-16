@@ -2,10 +2,7 @@ import Entity.Learner;
 import Entity.Schoolar;
 import Entity.Section;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,9 +21,22 @@ public class Main {
         test5();
         distinctTest();
         flatMapTest();
+        collectTest();
+    }
+
+    private static void collectTest() {
+        System.out.println("Collect Testing");
+        Map<Integer, List<Learner>> map = learnerList.stream()
+                .collect(Collectors.groupingBy(Learner::getAge));
+
+        for (Map.Entry<Integer, List<Learner>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+        System.out.println("-----------------");
     }
 
     private static void flatMapTest() {
+        System.out.println("FlatMap Testing");
         Section football = new Section("Football");
         Section volleyball = new Section("Volleyball");
         football.addMember(learnerList.get(0));
@@ -40,14 +50,17 @@ public class Main {
         sectionsList.stream()
                 .flatMap(section -> section.getMembers().stream())
                 .forEach(System.out::println);
+        System.out.println("-----------------");
     }
 
     private static void distinctTest() {
+        System.out.println("Distinct Testing");
         int[] ints = {1, 2, 5, 4, 3, 5, 5, 3, 2, 1};
         Stream<Integer> integerStream = Arrays.stream(ints).boxed();
         System.out.println("Distinct test\nOriginal Stream: " + Arrays.toString(ints));
         System.out.println("After distinct: " + integerStream.distinct().toList());
         integerStream.close();
+        System.out.println("-----------------");
     }
 
     private static void test5() {
@@ -59,6 +72,7 @@ public class Main {
                     }
                     System.out.println(learner);
                 });
+        System.out.println("-----------------");
     }
 
     private static void test4() {
